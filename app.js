@@ -19,7 +19,7 @@ if ( !local ) {
 		loginUrl: 		process.env.authUrl,
 		clientId: 		process.env.clientId,
 		clientSecret: 	process.env.clientSecret,
-		redirectUri: 	process.env.redirectUri
+		redirectUri: 	process.env.redirectUri,
 		grant_type: 	process.env.grant_type,
 		username: 		process.env.username,
 		password: 		process.env.password
@@ -80,6 +80,7 @@ app.get("/uploadfile", (req, res, next) => {
 		.then(function (response) {
 			console.dir(response.data);
 			//return resolve(response.data);
+			res.send(response.data.guid);
 		})
 		.catch(function (error) {
 			console.dir(error);
